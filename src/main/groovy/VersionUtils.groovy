@@ -15,4 +15,18 @@ class VersionUtils {
         return "1.0.${buildNumber}-${commitId}"
     }
 
+    static void createTag(script, String version) {
+
+        script.sh """
+            git tag ${version}
+        """
+    }
+
+    static void pushTag(script, String version) {
+
+        script.sh """
+            git push origin ${version}
+        """
+    }
+
 }
